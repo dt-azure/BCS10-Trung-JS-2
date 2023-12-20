@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container mx-auto mt-5">
+        <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="admission-tab" data-toggle="tab" data-target="#admission"
+                    type="button" role="tab">Kết quả tuyển sinh</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="electricity-tab" data-toggle="tab" data-target="#electricity" type="button"
+                    role="tab">Tính tiền điện</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tax-tab" data-toggle="tab" data-target="#tax" type="button" role="tab">Thuế
+                    thu nhập cá nhân</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cable-tab" data-toggle="tab" data-target="#cable" type="button"
+                    role="tab">Phí cáp Internet</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <!-- First tab -->
+            <div class="tab-pane show active" id="admission" role="tabpanel">
+                <h4 class="mb-3">Kết quả thi của thí sinh:</h4>
+                <div class="test-results row">
+                    <div class="input-group mb-3 col-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text d-block mx-auto" id="basic-addon1">Toán</span>
+                        </div>
+                        <input type="text" class="form-control" id="math-score">
+                    </div>
+                    <div class="input-group mb-3 col-4">
+                        <div class="input-group-prepend ">
+                            <span class="input-group-text d-block mx-auto" id="basic-addon1">Lý</span>
+                        </div>
+                        <input type="text" class="form-control" id="physics-score">
+                    </div>
+                    <div class="input-group mb-3 col-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text d-block mx-auto" id="basic-addon1">Hóa</span>
+                        </div>
+                        <input type="text" class="form-control" id="chem-score">
+                    </div>
+                </div>
+
+                <h4 class="mt-4 mb-3">Điểm chuẩn:</h4>
+                <input type="text" class="form-control benchmark" id="benchmark">
+
+                <h4 class="mt-5 mb-3">Chọn khu vực ưu tiên của thí sinh (nếu có):</h4>
+                <div class="area-selector row mb-5">
+                    <div class="selector-item col-lg-2">
+                        <input type="radio" class="mr-3" id="area-a" value="2" name="area-selector" />
+                        <label for="area-a">Khu vực A</label>
+                    </div>
+                    <div class="selector-item col-lg-2">
+                        <input type="radio" class="mr-3" id="area-b" value="1" name="area-selector" />
+                        <label for="area-b">Khu vực B</label>
+                    </div>
+                    <div class="selector-item col-lg-2">
+                        <input type="radio" class="mr-3" id="area-c" value="0.5" name="area-selector" />
+                        <label for="area-c">Khu vực C</label>
+                    </div>
+                </div>
+
+                <h4 class="mt-4 mb-3">Chọn đối tượng ưu tiên của thí sinh (nếu có):</h4>
+                <div class="student-type-selector row mb-4">
+                    <div class="selector-item col-lg-2">
+                        <input type="radio" class="mr-3" id="student-type-1" value="2.5" name="student-type-selector" />
+                        <label for="student-type-1">Đối tượng 1</label>
+                    </div>
+                    <div class="selector-item col-lg-2">
+                        <input type="radio" class="mr-3" id="student-type-2" value="1.5" name="student-type-selector" />
+                        <label for="student-type-2">Đối tượng 2</label>
+                    </div>
+                    <div class="selector-item col-lg-2">
+                        <input type="radio" class="mr-3" id="student-type-3" value="1" name="student-type-selector" />
+                        <label for="student-type-3">Đối tượng 3</label>
+                    </div>
+                </div>
+                <div class="result-btn mb-4">
+                    <button onclick="admissionResult()">Kết quả</button>
+                </div>
+                <div class="result">
+                    <p>
+                        Điểm chuẩn: <span id="benchmark-print"></span>
+                        <br>
+                        Kết quả thi của thí sinh: <span id="test-scores"></span>
+                        <br>
+                        Khu vực ưu tiên: <span id="student-area"></span>
+                        <br>
+                        Đối tượng ưu tiên: <span id="student-type"></span>
+                    </p>
+                    <h4>Tổng số điểm của thí sinh: <span id="total-score"></span></h4>
+                    <h4 class="mt-4">Kết quả tuyển sinh: <span id="admission-result"></span></h4>
+                </div>
+            </div>
+
+            <!-- Second tab -->
+            <div class="tab-pane" id="electricity" role="tabpanel">
+                <div class="electricity-input row mt-4 mb-5">
+                    <div class="customer col-4">
+                        <h4>Tên khách hàng:</h4>
+                        <input type="text" class="form-control benchmark" id="customer-name">
+                    </div>
+                    <div class="usage col-4">
+                        <h4>Mức điện tiêu thụ (kW):</h4>
+                        <input type="text" class="form-control benchmark" id="usage">
+                    </div>
+                </div>
+                <div class="result-btn mb-4">
+                    <button onclick="electricityBill()">Kết quả</button>
+                </div>
+                <div class="result">
+                    <p>
+                        Tên khách hàng: <span id="customer-name-print"></span>
+                        <br>
+                        Mức tiêu thụ điện: <span id="usage-print"></span>
+                        <br>
+                    </p>
+                    <h4 class="mt-4">Tổng chi phí: <span id="electricity-result"></span></h4>
+                </div>
+            </div>
+
+            <!-- Third tab -->
+            <div class="tab-pane" id="tax" role="tabpanel">
+                <div class="tax-input row mt-4 mb-5">
+                    <div class="col-5">
+                        <h4>Tên khách hàng:</h4>
+                        <input type="text" class="form-control benchmark" id="taxpayer-name">
+                    </div>
+                    <div class="col-3 mr-4">
+                        <h4>Tổng thu nhập:</h4>
+                        <input type="text" class="form-control benchmark" id="income">
+                    </div>
+                    <div class="col-3">
+                        <h4>Số người phụ thuộc:</h4>
+                        <input type="text" class="form-control benchmark" id="dependency">
+                    </div>
+                </div>
+                <div class="result-btn mb-4">
+                    <button onclick="taxAmount()">Kết quả</button>
+                </div>
+                <div class="result">
+                    <p>
+                        Tên khách hàng: <span id="taxpayer-name-print"></span>
+                        <br>
+                        Tổng thu nhập: <span id="income-print"></span>
+                        <br>
+                        Số người phụ thuộc: <span id="dependency-print"></span>
+                        <br>
+                    </p>
+                    <div class="row mt-4">
+                        <h4 class="col-8">Thu nhập chịu thuế: <span id="taxable-income"></span></h4>
+                        <h4 class="col-4">Mức thuế: <span id="tax-rate"></span></h4>
+                    </div>
+                    <h4 class="mt-3">Thuế thu nhập cá nhân: <span id="tax-total"></span></h4>
+                </div>
+            </div>
+
+            <!-- Fourth tab -->
+            <div class="tab-pane" id="cable" role="tabpanel">
+                <div class="row">
+                    <div class="col-5">
+                        <h4>Mã khách hàng:</h4>
+                        <input type="text" class="form-control benchmark mb-4" id="client-name">
+                    </div>
+                    <div class="col-7">
+                        <h4>Phân loại khách hàng:</h4>
+                        <div class="area-selector row mb-4">
+                            <div class="selector-item col-6">
+                                <input type="radio" class="mr-3" id="household" value="household" name="client-selector" />
+                                <label for="household">Khách hàng cá nhân</label>
+                            </div>
+                            <div class="selector-item col-6">
+                                <input type="radio" class="mr-3" id="business" value="business" name="client-selector" />
+                                <label for="business">Khách hàng doanh nghiệp</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-5">
+                    <div class="col-5">
+                        <h4>Số kết nối:</h4>
+                        <input type="text" class="form-control benchmark" id="connections">
+                    </div>
+                    <div class="col-5">
+                        <h4>Số kênh cao cấp:</h4>
+                        <input type="text" class="form-control benchmark" id="channels">
+                    </div>
+                </div>
+
+
+                <div class="result-btn mb-4">
+                    <button onclick="cableFee()">Kết quả</button>
+                </div>
+                <div class="result">
+                    <p>
+                        Mã khách hàng: <span id="client-print"></span>
+                        <br>
+                        Phân loại khách hàng: <span id="client-type-print"></span>
+                        <br>
+                        Số kết nối: <span id="connections-print"></span>
+                        <br>
+                        Số kênh cao cấp: <span id="channels-print"></span>
+                    </p>
+                    <h4 class="mt-4">Tổng phí cáp: <span id="cable-fee"></span></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

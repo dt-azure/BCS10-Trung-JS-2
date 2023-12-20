@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #023047;
+    color: #fff;
+}
+
+.nav-tabs {
+    border: none;
+}
+
+.nav-tabs .nav-link.active {
+    background: #fb8500;
+    color: #fff;
+    border: 1px solid #fb8500;
+}
+
+.nav-link {
+    color: #fff;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.tab-pane {
+    background: #fb8500;
+    padding: 30px 50px;
+    border-radius: 15px;
+}
+
+.result-btn button {
+    font-size: 24px;
+    padding: 10px 50px;
+    font-weight: 700;
+    color: #fff;
+    background: #c1121f;
+    border: 2px solid #c1121f;
+    border-radius: 30px;
+    transition: all 0.3s;
+}
+
+.result-btn button:hover {
+    border: 2px solid #fff;
+}
+
+input[type="radio" i] {
+    width: 15px;
+    height: 15px;
+}
+
+.result p span {
+    padding-left: 10px;
+    font-weight: 700;
+}
+
+/* First problem */
+
+.test-results .input-group-text {
+    width: 60px;
+}
+
+.area-selector .type {
+    list-style: none;
+    
+}
+
+.selector-item label {
+    font-size: 20px;
+    margin: 0;
+}
+
+.benchmark {
+    width: 200px;
+}
+
+.result {
+    background: #fefae0;
+    color: #023047;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.result p {
+    font-size: 18px;
+    line-height: 36px;
+}
+
+.result h4 {
+    font-weight: 700;
+}
+
+#total-score {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#total-score {
+    font-size: 24px;
+}
+
+/* Second problem */
+#usage-print {
+    font-weight: 700;
+}
+
+#customer-name-print,
+#usage-print {
+    padding-left: 10px;
+    font-weight: 700;
+}
+
+/* Third problem */
+#tax #taxpayer-name {
+    width: 380px;
+}
+
+
+/* Fourth problem */
+#client-name {
+    width: 300px;
+}
